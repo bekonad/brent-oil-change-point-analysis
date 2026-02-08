@@ -1,0 +1,16 @@
+# Core data & visualization
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
+seaborn>=0.12
+
+# Time series & statistics
+statsmodels>=0.14
+
+# Bayesian modeling (PyMC + diagnostics)
+pymc>=5.10
+arviz>=0.16
+
+# Jupyter & notebook support (optional but very useful)
+jupyter>=1.0
+ipykernel>=6.25
