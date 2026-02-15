@@ -1,53 +1,137 @@
-# Brent Oil Change Point Analysis
+Markdown<div align="center">
 
-## Overview
-This repository contains the complete workflow for analyzing Brent oil prices (1987–2022) using Bayesian Change Point Detection, as part of the 10 Academy AI Mastery Week 11 Challenge. The analysis identifies change points in oil prices and associates them with geopolitical/economic events to provide insights for investors, policymakers, and energy companies at Birhan Energies.
+<h1>Brent Oil Change Point Analysis</h1>
+  <p>
+    <strong>10 Academy AI Mastery – Week 11 Challenge</strong><br/>
+    Detecting structural changes & associating causes in Brent oil prices (1987–2022)
+  </p>
 
-Key objectives:
-- Perform EDA on Brent oil prices.
-- Build a Bayesian change point model with PyMC.
-- Associate change points with events.
-- Create an interactive dashboard with Flask (backend) and React (frontend).
-- Generate a professional report.
+  <img src="https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/Flask-2.x-green?style=flat-square&logo=flask" alt="Flask"/>
+  <img src="https://img.shields.io/badge/React-18.x-blue?style=flat-square&logo=react" alt="React"/>
+  <img src="https://img.shields.io/badge/PyMC-Bayesian-orange?style=flat-square" alt="PyMC"/>
+  <br/><br/>
+  <strong>Author:</strong> Bereket Felek • <strong>Date:</strong> February 2026
+</div>
 
-## Repository Structure
+# 📌 Project Overview
 
-├── data/                # Raw data: BrentOilPrices.csv; Cleaned: brent_prices_cleaned.csv
-├── notebooks/           # eda.ipynb (EDA), modeling.ipynb (Bayesian model)
-├── dashboard/           # backend/ (Flask app), frontend/ (React app)
-├── reports/             # interim_report.pdf, final_report.pdf
-├── events/              # events.csv (geopolitical events)
-├── README.md            # This file
-├── requirements.txt     # Python dependencies
-└── LICENSE              # MIT License
-text
+This project analyzes historical **Brent crude oil prices** using **Bayesian change point detection** (PyMC) to identify structural breaks, associates them with major geopolitical & economic events, and provides an **interactive dashboard** for visualization.
 
+### **Main outcomes:** ###
+- Cleaned data & EDA
+- Single Bayesian change point model with convergence checks
+- Probabilistic event association (14+ key events)
+- Full-stack dashboard (price trend + volatility + events + filters)
+- Professional final report with quantified insights
 
-## Setup Instructions
-1. Clone the repo: `git clone https://github.com/bekonad/brent-oil-change-point-analysis.git`
-2. Create and activate a virtual environment: `python -m venv .venv; source .venv/bin/activate` (Unix) or `.venv\Scripts\Activate.ps1` (Windows)
-3. Install dependencies: `pip install -r requirements.txt`
-4. For the dashboard:
-   - Backend: `cd dashboard/backend; flask run`
-   - Frontend: `cd dashboard/frontend; npm install; npm start` (requires Node.js)
-5. Run notebooks: `jupyter notebook` in the root, then open notebooks/eda.ipynb, etc.
+# 🚀 Quick Start
 
-## Branches
-- `main`: Stable deliverables.
-- `dev`: Active development.
-- `eda`: Exploratory data analysis.
-- `modeling`: Bayesian modeling.
-- `dashboard`: Dashboard development.
+### 1. Clone & Navigate
 
-## Data Sources
-- Brent oil prices: From attached BrentOilPrices.csv (1987–2022).
-- Events: Compiled in events/events.csv (15+ key geopolitical/economic events).
+```bash
+   git clone https://github.com/bekonad/brent-oil-change-point-      analysis.git
+   cd brent-oil-change-point-analysis
+```
+___
 
-## Assumptions and Limitations
-- Assumptions: Change points are detectable via shifts in mean prices; events are major contributors but not exhaustive.
-- Limitations: Correlation ≠ causation; overlapping events (e.g., crises + policies); market noise from non-modeled factors.
+### 2. Run the Dashboard (Recommended)
+- Backend (Flask API)
+Open first terminal:
+```PowerShell
+   cd dashboard\backend
+   .\venv\Scripts\Activate.ps1          # Activate virtual environment
+   python app.py
+```
+→ API runs at http://127.0.0.1:5000
+- Frontend (React Dashboard)
+**Open second terminal:**
+```PowerShell
+   cd dashboard\frontend
+   npm install
+   npm start
+```
+→ Dashboard opens at http://localhost:3000
+Now you can:
 
-## License
-MIT License (see LICENSE file).
+ - **See historical price + volatility trend**
+ - **View the main change point (2014-11-05 OPEC decision)**
+ - **Observe event markers (orange lines)**
+ - **Filter dates and reset**
 
-For questions, contact [bereketfeleke003@gmail.com]
+_____
+
+### 3. Explore Notebooks (EDA + Modeling)
+```PowerShell
+   cd notebooks
+   jupyter notebook
+```
+Open
+  - eda-brent-oil-prices.ipynb
+  - 02_bayesian_change_point.ipynb for full analysis.
+___
+
+### 🗂 Project Structure
+```text
+brent-oil-change-point-analysis/
+├── data/                    # Cleaned Brent prices
+├── events/                  # 14+ geopolitical events CSV
+├── notebooks/               # EDA + PyMC modeling
+├── dashboard/               # Full dashboard
+│   ├── backend/             # Flask API
+│   └── frontend/            # React + Recharts UI
+├── reports/                 # Screenshots & final report
+├── README.md
+└── requirements.txt
+```
+____
+### 🎯 Key Deliverables
+Task,Description,Location
+1,Foundation & EDA,"notebooks/, reports/interim/"
+2,Bayesian change point model (PyMC),notebooks/eda_and_modeling.ipynb
+3,Interactive dashboard (Flask + React),dashboard/
+Final,Report with insights & screenshots,reports/final_report.md
+
+- Full dashboard view
+- 2014–2016 oil glut zoom
+- Tooltip interaction
+-  Volatility overlay
+___
+
+### 🛠 Tech Stack
+
+-  **Data & Modeling:** Python, Pandas, PyMC, ArviZ
+-   **Backend:** Flask
+-   **Frontend:** React, Recharts
+-   **Visualization:** Recharts (interactive charts)
+___
+
+### 📊 Dashboard Features
+
+- 📈 Historical Brent price trend (2010+)
+
+- 📉 30-day rolling volatility (Vol_30d)
+
+- ⚡ Detected change point (thick purple line, 2014-11-05, –39.6% shift)
+
+- 📍 Event markers (orange lines + names for 14 events)
+
+- 🔍 Date range filter + reset button
+
+- Hover tooltips (price + volatility)
+
+___
+### 📄 Final Report
+- See reports/final_report.md for:
+- Executive Summary
+- Methodology
+- Results & quantified impacts
+- Dashboard screenshots
+- Discussion & limitations
+- Conclusion & actionable insights
+
+Challenge completed – February 15, 2026
+Bereket Feleke – 10 Academy AI Mastery
+
+```
+
